@@ -1,22 +1,17 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        hash_table = [-1] * 256
-        n = len(s)
-        l = 0
-        r = 0
-        maxLen = 0
+        seen = {}
+        l, maxLen = 0, 0
         
-        while r < n:
-            char_code = ord(s[r])
+        for r in range(len(s)):
+            char = s[r]
+            if char in seen and seen[char] >= l:
+                l = seen[char] + 1
             
-            if hash_table[char_code] != -1:
-                if hash_table[char_code] >= l:
-                    l = hash_table[char_code] + 1
-                    
             current_len = r - l + 1
             maxLen = max(current_len, maxLen)
+            seen[char] = r
             
-            hash_table[char_code] = r
-            r += 1
+        return maxLen
             
         return maxLen
