@@ -6,6 +6,6 @@ class Solution:
             return 0
         while temp in sequence:
             count += 1
-            temp = temp+word
+            temp += word
 
         return count
