@@ -1,15 +1,21 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
         words = s.split()
-        n = len(words)
+        return " ".join(reversed(words))
 
-        s = ""
 
-        for i in range(n - 1, -1, -1):
-            if i == 0:
-                s = s + words[i]
-                break
+        # Brute Force
 
-            s = s + words[i] + " "
+        # words = s.split()
+        # n = len(words)
 
-        return s
+        # s = ""
+
+        # for i in range(n - 1, -1, -1):
+        #     if i == 0:
+        #         s = s + words[i]
+        #         break
+
+        #     s = s + words[i] + " "
+
+        # return s
